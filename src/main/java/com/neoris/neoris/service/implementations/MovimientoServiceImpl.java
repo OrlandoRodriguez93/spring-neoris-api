@@ -30,9 +30,6 @@ public class MovimientoServiceImpl implements MovimientoService {
     CuentaRepository cuentaRepository;
 
     @Autowired
-    ClienteRepository clienteRepository;
-
-    @Autowired
     MovimientoConverter movimientoConverter;
 
     @Override

@@ -8,9 +8,7 @@ import javax.validation.constraints.DecimalMin;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.neoris.neoris.enums.TipoCuenta;
-import com.neoris.neoris.model.Control;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.Where;
 
 @Entity
@@ -18,7 +16,16 @@ import org.hibernate.annotations.Where;
 @Getter
 @Table(name = "tbl_cuenta")
 @Where(clause = "status=true")
-public class Cuenta extends Control implements Serializable {
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class Cuenta implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private boolean status = true;
 
     private String numeroCuenta;
 

@@ -1,12 +1,11 @@
 package com.neoris.neoris.service.implementations;
 
 import com.neoris.neoris.converter.CuentaConverter;
-import com.neoris.neoris.dto.ClienteDTO;
 import com.neoris.neoris.dto.CuentaDTO;
-import com.neoris.neoris.entity.Cliente;
 import com.neoris.neoris.entity.Cuenta;
 import com.neoris.neoris.repository.CuentaRepository;
 import com.neoris.neoris.service.CuentaService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,10 +15,10 @@ import java.util.List;
 
 @Service
 @Slf4j
+@RequiredArgsConstructor
 public class CuentaServiceImpl implements CuentaService {
 
-    @Autowired
-    CuentaRepository cuentaRepository;
+    private final CuentaRepository cuentaRepository;
 
     @Autowired
     CuentaConverter cuentaConverter;

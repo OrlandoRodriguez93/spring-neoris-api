@@ -5,10 +5,7 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 import com.neoris.neoris.enums.Genero;
-import com.neoris.neoris.model.Control;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.Where;
 
 @Setter
@@ -17,7 +14,16 @@ import org.hibernate.annotations.Where;
 @Table(name="tbl_persona")
 @Where(clause = "status=true")
 @Inheritance(strategy= InheritanceType.JOINED)
-public class Persona extends Control implements Serializable {
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class Persona implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private boolean status = true;
 
     private String nombre;
 

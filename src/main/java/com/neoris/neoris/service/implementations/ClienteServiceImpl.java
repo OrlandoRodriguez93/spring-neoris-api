@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.neoris.neoris.converter.ClienteConverter;
 import com.neoris.neoris.dto.ClienteDTO;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,10 +17,11 @@ import lombok.extern.slf4j.Slf4j;
 
 @Service
 @Slf4j
+@RequiredArgsConstructor
 public class ClienteServiceImpl implements ClienteService {
 
-    @Autowired
-    ClienteRepository clienteRepository;
+
+    private final ClienteRepository clienteRepository;
 
     @Autowired
     ClienteConverter clienteConverter;

@@ -2,9 +2,7 @@ package com.neoris.neoris.entity;
 
 import com.neoris.neoris.enums.TipoMovimiento;
 import com.neoris.neoris.enums.ValorMovimiento;
-import com.neoris.neoris.model.Control;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
@@ -16,7 +14,16 @@ import java.util.Date;
 @Entity
 @Table(name = "tbl_movimiento")
 @Where(clause = "status=true")
-public class Movimiento extends Control implements Serializable {
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class Movimiento implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private boolean status = true;
 
     @Enumerated(EnumType.STRING)
     private TipoMovimiento tipoMovimiento;
